@@ -1,0 +1,25 @@
+services:
+  mlflow:
+    image: mlflow:2.22.1
+      #image: bitnami/mlflow
+    ports:
+      - "5000:5000" # Expose MLflow UI on port 5000
+    env_file: /secrets/mlflow.env
+    entrypoint: /bin/sh -c
+    command: ["mlflow server --backend-store-uri $$MLFLOW_TRACKING_URI --default-artifact-root s3://bucket/mlflow-artifacts/ --host 0.0.0.0 --port 5000 --serve-artifacts"]
+    
+      #command: mlflow server --host 0.0.0.0 --port 5000
+    networks:
+      - anomaly_net
+
+  anomaly_exporter:
+    image: anomaly-exporter
+    env_file: .env
+    ports:
+      - 8000:8000
+    networks:
+      - anomaly_net
+
+networks:
+  anomaly_net:
+
