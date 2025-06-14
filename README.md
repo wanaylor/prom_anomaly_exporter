@@ -8,6 +8,10 @@ This example is for anomaly detection in network traffic. The network traffic wa
 
 <img width="818" alt="network_anomaly" src="https://github.com/user-attachments/assets/36e7cde0-e351-46a0-90d5-373e57542d62" />
 
+The model was trained on Rx and Tx bytes and packets for various interfaces on the machine (20 columns total). Negative isolation forest scores indicate anomalies and the plot below shows the anomaly score along side network traffic for the selected interfaces.
+
+![network_anomaly](https://github.com/user-attachments/assets/6b65ab91-8697-4ba3-a769-e7f4fa79475d)
+
 
 # Minio Setup
 There is a step in minio setup that requires creating a new bucket. Rather than leaving the script in the compose file I only ran it once and then removed it. See [here](https://mlflow.org/docs/latest/tracking/tutorials/remote-server/#create-composeyaml) for details.
