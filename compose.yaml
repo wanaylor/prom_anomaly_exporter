@@ -20,6 +20,14 @@ services:
     networks:
       - anomaly_net
 
+  model_training:
+    image: model-training
+    env_file: .env
+    ports:
+      - 8888:8888
+    networks:
+      - anomaly_net
+
 networks:
   anomaly_net:
 

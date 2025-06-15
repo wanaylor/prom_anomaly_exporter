@@ -1,4 +1,4 @@
 mlflow==2.22.1
-pandas
-boto3
-prometheus_client
+pandas==2.2.3
+boto3==1.38.36
+prometheus_client==0.22.1

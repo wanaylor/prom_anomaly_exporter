@@ -1,0 +1,4 @@
+FROM jupyter/base-notebook
+COPY ./requirements-model-training.txt ./
+RUN python -m pip install --no-cache -r requirements-model-training.txt
+ENTRYPOINT jupyter server --NotebookApp.token='' --NotebookApp.password=''
